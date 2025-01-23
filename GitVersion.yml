@@ -1,0 +1,29 @@
+# Base configuration for versioning
+mode: ContinuousDeployment
+commit-message-incrementing: Enabled  # Allow commit messages to increment the version
+
+# Specify patterns for commit messages to bump versions
+major-version-bump-message: '\b(breaking|major)\b'
+minor-version-bump-message: '\b(feature|minor)\b'
+patch-version-bump-message: '\b(hotfix|fix|patch)\b'
+
+# Next version placeholder to be set manually when needed
+next-version:
+
+branches:
+  main:
+    regex: ^main$
+    mode: ContinuousDeployment
+    label: ''
+    increment: Patch  # Default to patch increments for the main branch
+    track-merge-target: false
+    source-branches: []  # Allow any branch to merge into main
+    is-main-branch: true
+    pre-release-weight: 55000
+
+  branch:
+    regex: .+  # Matches any other branch
+    mode: ContinuousDeployment
+    label: '{BranchName}'  # Use the branch name as the label
+    increment: Inherit  # Inherit increment rules from the main branch
+    source-branches: [main]  # Allow branching from main

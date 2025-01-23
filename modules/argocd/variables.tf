@@ -1,0 +1,7 @@
+variable "domain_name" {
+  description = "Domain name for the Kubernetes dashboard"
+}
+
+variable "zone_id" {
+  description = "Route 53 zone ID"
+}

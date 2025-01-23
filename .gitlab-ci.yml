@@ -1,0 +1,4 @@
+include:
+  - project: '/platform/gitlab/pipelines/release'
+    ref: 0.0.9
+    file: 'base-release.yml'
