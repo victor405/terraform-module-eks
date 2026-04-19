@@ -231,12 +231,13 @@ variable "node_groups" {
 ################################################################################
 
 variable "fargate_profiles" {
+  description = "Map of EKS Fargate profiles to create."
   type = map(object({
-    selectors = optional(list(object({
+    selectors = list(object({
       namespace = string
       labels    = optional(map(string), {})
-    })), [])
-    tags       = optional(map(string), {})
+    }))
+    tags = optional(map(string), {})
   }))
   default = {}
 }
