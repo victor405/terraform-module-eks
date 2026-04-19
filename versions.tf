@@ -1,6 +1,6 @@
 terraform {
   # Allows to use the optional function in variable type definitions
-  experiments = [module_variable_optional_attrs]
+  # experiments = [module_variable_optional_attrs]
 
   required_providers {
     helm = {
