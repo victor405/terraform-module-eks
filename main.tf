@@ -366,7 +366,7 @@ resource "aws_iam_role" "fargate_pod_execution_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "fargate_pod_execution_role_policy" {
-  count      = length(var.fargate_profiles) > 0
+  count      = length(var.fargate_profiles) > 0 ? 1 : 0
   role       = aws_iam_role.fargate_pod_execution_role[0].name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy"
 }
