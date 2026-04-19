@@ -238,6 +238,7 @@ variable "fargate_profiles" {
     })), [])
     tags       = optional(map(string), {})
   }))
+  default = {}
 }
 
 
