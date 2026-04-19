@@ -20,7 +20,8 @@ locals {
   # aws_eks_node_group
   
   # aws_eks_fargate_profile
-  fargate_profile_enabled = var.fargate_profile_enabled && var.selectors != null
+  # fargate_profile_enabled = var.fargate_profile_enabled && var.selectors != null
+  fargate_profile_enabled = length(var.fargate_profiles) > 0
   
   # aws_eks_addon
   addons = merge(
